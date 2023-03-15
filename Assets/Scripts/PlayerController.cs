@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10f;
+    public Transform camTarget;
     Vector3 mousePos;
 
     // Start is called before the first frame update
@@ -20,6 +21,17 @@ public class PlayerController : MonoBehaviour
         mousePos.x = transform.position.x + 2;
         transform.up = (mousePos - transform.position).normalized;
         transform.position += transform.up * speed * Time.deltaTime;
+        camTarget.position = new Vector3(transform.position.x, 0, transform.position.z);
+        
+        if(transform.position.y > 2.1f)
+        {
+            transform.position = new Vector3(transform.position.x, 2.1f, transform.position.z);
+        }
+        if (transform.position.y < -2.1f)
+        {
+            transform.position = new Vector3(transform.position.x, -2.1f, transform.position.z);
+        }
+
     }
 
     public void OnLook(InputValue input)
