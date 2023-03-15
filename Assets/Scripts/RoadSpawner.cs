@@ -16,7 +16,7 @@ public class RoadSpawner : MonoBehaviour
         for(int i = 0; i < transform.childCount; i++)
         {
             if((transform.GetChild(i).transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
-                && Mathf.Abs(transform.GetChild(i).transform.position.x - GameObject.FindGameObjectWithTag("Player").transform.position.x) > 5.3f)
+                && Mathf.Abs(transform.GetChild(i).transform.position.x - GameObject.FindGameObjectWithTag("Player").transform.position.x) > 5.4f)
             {
                 transform.GetChild(i).transform.position = new Vector3(
                     transform.GetChild(i).transform.position.x + 4.81f*3
